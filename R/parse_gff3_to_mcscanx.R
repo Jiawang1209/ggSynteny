@@ -1,4 +1,4 @@
-#' Extract chromosome lengths from a GFF3 annotation file
+#' Convert GFF3 annotation to MCScanX gff format
 #'
 #' @param gffpath Character
 #' Path to the input GFF3 annotation file.
@@ -9,18 +9,16 @@
 #' @export
 #'
 #' @examples NULL
-parse_gff <- function(gffpath,output){
+parse_gff3_to_mcscanx <- function(gffpath, output){
   
-  Chr <- readr::read_delim(file = gffpath, delim = "\t", comment = "#", col_names = F) %>%
+  gff <- readr::read_delim(file = gffpath, delim = "\t", comment = "#", col_names = F) %>%
     dplyr::filter(X3 == "gene") %>%
     dplyr::select(X1, X4, X5, X9) %>%
     dplyr::mutate(X9 = str_remove(X9, pattern = ";.*")) %>%
     dplyr::mutate(X9 = str_remove(X9, pattern = "ID=")) %>%
-    dplyr::group_by(X1) %>%
-    dplyr::summarise(max(X5)) %>%
-    purrr::set_names(c("Chr", "Length"))
+    dplyr::select(1,4,2,3)
   
-  write.table(Chr,
+  write.table(gff,
               file = output,
               quote = F,
               row.names = F,

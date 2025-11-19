@@ -1,3 +1,17 @@
+#' Extract representative protein transcript from a FASTA file
+#'
+#' @param fasta Character
+#' Path to the input amino acid FASTA file to be processed.
+#' @param sep Character
+#' Separator used in the sequence IDs to distinguish gene ID and transcript ID. 
+#' @param output Character
+#'  Path to the output FASTA file that will store the representative (longest) transcript per gene.
+#'
+#' @returns None
+#' @export
+#'
+#' @examples NULL
+#' 
 get_representative_transcript <- function(fasta, sep, output){
 
   # load fasta 
