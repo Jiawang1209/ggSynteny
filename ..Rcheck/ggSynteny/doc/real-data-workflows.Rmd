@@ -1,0 +1,163 @@
+---
+title: "Real-Data Workflows"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Real-Data Workflows}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Overview
+
+`ggSynteny` currently supports two pairwise input routes:
+
+- `MCScanX`: `gff + collinearity`
+- `jcvi`: `BED + anchors`
+
+Both routes produce the same internal `ggsynteny_data` object, so the plotting
+and annotation steps are shared.
+
+This vignette is written as a real-data template. The examples below use the
+bundled toy files so they can run during package checks, but the same code
+structure is intended for real genome pairs.
+
+# Data preparation checklist
+
+Before running a real dataset, check these points:
+
+1. Gene IDs in the pairwise synteny output and annotation files are consistent.
+2. Chromosome names are consistent between pairwise input and `GFF3`.
+3. Coordinates are all on the same genome build.
+4. The pairwise result contains enough anchors per block for the plot you want.
+5. For transcript-aware micro-synteny, the `GFF3` actually includes transcript,
+   exon, or CDS features.
+
+If gene IDs are not identical between the pairwise input and `GFF3`, prepare a
+named mapping vector and pass it through `gene_id_map1` and `gene_id_map2`.
+
+# MCScanX workflow
+
+```{r}
+library(ggSynteny)
+
+mcscanx_gff <- system.file("extdata", "toy_mcscanx.gff", package = "ggSynteny")
+collinearity <- system.file("extdata", "toy_mcscanx.collinearity", package = "ggSynteny")
+annotation <- system.file("extdata", "toy_annotation.gff3", package = "ggSynteny")
+
+res_mcscanx <- validate_real_synteny_workflow(
+  mcscanx_gff = mcscanx_gff,
+  collinearity = collinearity,
+  genome1 = "GenomeA",
+  genome2 = "GenomeB",
+  gff3_genome1 = annotation,
+  gff3_genome2 = annotation,
+  transcript_mode = "canonical",
+  min_pairs = 2,
+  flank_genes = 1
+)
+```
+
+The returned object contains:
+
+```{r}
+names(res_mcscanx)
+names(res_mcscanx$data)
+```
+
+Genome-level and micro-synteny plots are both created from the same validated
+data object:
+
+```{r, fig.height=4, fig.width=7}
+res_mcscanx$genome_plot
+```
+
+```{r, fig.height=4, fig.width=7}
+res_mcscanx$micro_plot
+```
+
+# jcvi workflow
+
+```{r}
+jcvi_anchors <- system.file("extdata", "toy_jcvi.anchors", package = "ggSynteny")
+bed_a <- system.file("extdata", "toy_jcvi_genomeA.bed", package = "ggSynteny")
+bed_b <- system.file("extdata", "toy_jcvi_genomeB.bed", package = "ggSynteny")
+
+res_jcvi <- validate_jcvi_synteny_workflow(
+  anchors = jcvi_anchors,
+  bed_a = bed_a,
+  bed_b = bed_b,
+  genome1 = "GenomeA",
+  genome2 = "GenomeB",
+  gff3_genome1 = annotation,
+  gff3_genome2 = annotation,
+  transcript_mode = "canonical",
+  min_pairs = 2,
+  flank_genes = 1
+)
+```
+
+```{r, fig.height=4, fig.width=7}
+res_jcvi$genome_plot
+```
+
+```{r, fig.height=4, fig.width=7}
+res_jcvi$micro_plot
+```
+
+# Real-data substitution points
+
+When replacing the toy files with real data, these are the lines you usually
+change:
+
+```r
+res <- validate_real_synteny_workflow(
+  mcscanx_gff = "species_pair.gff",
+  collinearity = "species_pair.collinearity",
+  genome1 = "SpeciesA",
+  genome2 = "SpeciesB",
+  gff3_genome1 = "speciesA.gff3",
+  gff3_genome2 = "speciesB.gff3",
+  gene_id_map1 = NULL,
+  gene_id_map2 = NULL,
+  transcript_mode = "canonical",
+  min_pairs = 5,
+  flank_genes = 3
+)
+```
+
+Or, for `jcvi`:
+
+```r
+res <- validate_jcvi_synteny_workflow(
+  anchors = "species_pair.anchors",
+  bed_a = "speciesA.bed",
+  bed_b = "speciesB.bed",
+  genome1 = "SpeciesA",
+  genome2 = "SpeciesB",
+  gff3_genome1 = "speciesA.gff3",
+  gff3_genome2 = "speciesB.gff3",
+  gene_id_map1 = NULL,
+  gene_id_map2 = NULL,
+  transcript_mode = "canonical",
+  min_pairs = 5,
+  flank_genes = 3
+)
+```
+
+# Troubleshooting
+
+- No blocks parsed: confirm the pairwise input really contains anchors for the
+  selected genome pair.
+- Empty feature layer: confirm the `GFF3` contains transcript, exon, or CDS
+  entries and that `gene_id_map*` is correct.
+- Missing strand or labels: confirm those values exist in the `GFF3` and match
+  the same gene IDs used in the pairwise output.
+- Micro-synteny looks too sparse: reduce `min_pairs`, reduce `flank_genes`, or
+  choose a block with more anchors.

@@ -1,0 +1,436 @@
+
+R version 4.5.1 (2025-06-13) -- "Great Square Root"
+Copyright (C) 2025 The R Foundation for Statistical Computing
+Platform: aarch64-apple-darwin20
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> pkgname <- "ggSynteny"
+> source(file.path(R.home("share"), "R", "examples-header.R"))
+> options(warn = 1)
+> library('ggSynteny')
+ggSynteny v0.1.0
+Genome synteny data processing and visualization
+> 
+> base::assign(".oldSearch", base::search(), pos = 'CheckExEnv')
+> base::assign(".old_wd", base::getwd(), pos = 'CheckExEnv')
+> cleanEx()
+> nameEx("add_gff3_annotation")
+> ### * add_gff3_annotation
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: add_gff3_annotation
+> ### Title: Attach GFF3 annotation to a ggsynteny data object
+> ### Aliases: add_gff3_annotation
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("build_blocks_from_anchors")
+> ### * build_blocks_from_anchors
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: build_blocks_from_anchors
+> ### Title: Build synteny blocks from anchor pairs
+> ### Aliases: build_blocks_from_anchors
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compute_block_layout")
+> ### * compute_block_layout
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compute_block_layout
+> ### Title: Compute linear block coordinates
+> ### Aliases: compute_block_layout
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("compute_chr_layout")
+> ### * compute_chr_layout
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: compute_chr_layout
+> ### Title: Compute linear chromosome coordinates
+> ### Aliases: compute_chr_layout
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("get_representative_transcript")
+> ### * get_representative_transcript
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: get_representative_transcript
+> ### Title: Extract representative protein transcript from a FASTA file
+> ### Aliases: get_representative_transcript
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("map_genes_to_linear")
+> ### * map_genes_to_linear
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: map_genes_to_linear
+> ### Title: Map genomic intervals to linear chromosome coordinates
+> ### Aliases: map_genes_to_linear
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parse_Synteny_from_jcvi")
+> ### * parse_Synteny_from_jcvi
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parse_Synteny_from_jcvi
+> ### Title: Parse synteny blocks from jcvi output
+> ### Aliases: parse_Synteny_from_jcvi
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parse_Synteny_from_mcscanx")
+> ### * parse_Synteny_from_mcscanx
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parse_Synteny_from_mcscanx
+> ### Title: Parse synteny blocks from MCScanX output
+> ### Aliases: parse_Synteny_from_mcscanx
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parse_gff")
+> ### * parse_gff
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parse_gff
+> ### Title: Extract chromosome lengths from a GFF3 annotation file
+> ### Aliases: parse_gff
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("parse_gff3_to_mcscanx")
+> ### * parse_gff3_to_mcscanx
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: parse_gff3_to_mcscanx
+> ### Title: Convert GFF3 annotation to MCScanX gff format
+> ### Aliases: parse_gff3_to_mcscanx
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plot_Synteny")
+> ### * plot_Synteny
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot_Synteny
+> ### Title: Plot genome-level synteny
+> ### Aliases: plot_Synteny
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("plot_microSynteny")
+> ### * plot_microSynteny
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: plot_microSynteny
+> ### Title: Plot micro-synteny for a selected block
+> ### Aliases: plot_microSynteny
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("prepare_jcvi_data")
+> ### * prepare_jcvi_data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: prepare_jcvi_data
+> ### Title: Parse synteny blocks from jcvi anchors and BED files
+> ### Aliases: prepare_jcvi_data
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("prepare_mcscanx_data")
+> ### * prepare_mcscanx_data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: prepare_mcscanx_data
+> ### Title: Parse synteny blocks from an MCScanX collinearity file
+> ### Aliases: prepare_mcscanx_data
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("prepare_micro_synteny_data")
+> ### * prepare_micro_synteny_data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: prepare_micro_synteny_data
+> ### Title: Prepare block-level data for micro-synteny plotting
+> ### Aliases: prepare_micro_synteny_data
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("read_gff3_annotation")
+> ### * read_gff3_annotation
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: read_gff3_annotation
+> ### Title: Read gene and transcript features from a GFF3 file
+> ### Aliases: read_gff3_annotation
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("read_jcvi_bed")
+> ### * read_jcvi_bed
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: read_jcvi_bed
+> ### Title: Read a jcvi BED file
+> ### Aliases: read_jcvi_bed
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("read_mcscanx_gff")
+> ### * read_mcscanx_gff
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: read_mcscanx_gff
+> ### Title: Read an MCScanX gff file
+> ### Aliases: read_mcscanx_gff
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("run_MCScanX")
+> ### * run_MCScanX
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: run_MCScanX
+> ### Title: Run MCScanX synteny analysis
+> ### Aliases: run_MCScanX
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> 
+> cleanEx()
+> nameEx("run_blastp_to_mcscanx")
+> ### * run_blastp_to_mcscanx
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: run_blastp_to_mcscanx
+> ### Title: Run BLASTP for MCScanX synteny analysis
+> ### Aliases: run_blastp_to_mcscanx
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("validate_ggsynteny_data")
+> ### * validate_ggsynteny_data
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: validate_ggsynteny_data
+> ### Title: Validate a ggsynteny data object
+> ### Aliases: validate_ggsynteny_data
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("validate_jcvi_synteny_workflow")
+> ### * validate_jcvi_synteny_workflow
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: validate_jcvi_synteny_workflow
+> ### Title: Run an end-to-end jcvi synteny validation workflow
+> ### Aliases: validate_jcvi_synteny_workflow
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> cleanEx()
+> nameEx("validate_real_synteny_workflow")
+> ### * validate_real_synteny_workflow
+> 
+> flush(stderr()); flush(stdout())
+> 
+> ### Name: validate_real_synteny_workflow
+> ### Title: Run an end-to-end synteny validation workflow
+> ### Aliases: validate_real_synteny_workflow
+> 
+> ### ** Examples
+> 
+> NULL
+NULL
+> 
+> 
+> 
+> ### * <FOOTER>
+> ###
+> cleanEx()
+> options(digits = 7L)
+> base::cat("Time elapsed: ", proc.time() - base::get("ptime", pos = 'CheckExEnv'),"\n")
+Time elapsed:  0.04 0.006 0.046 0 0 
+> grDevices::dev.off()
+null device 
+          1 
+> ###
+> ### Local variables: ***
+> ### mode: outline-minor ***
+> ### outline-regexp: "\\(> \\)?### [*]+" ***
+> ### End: ***
+> quit('no')

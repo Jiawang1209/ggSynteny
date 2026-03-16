@@ -1,0 +1,40 @@
+add_gff3_annotation     Attach GFF3 annotation to a ggsynteny data
+                        object
+build_blocks_from_anchors
+                        Build synteny blocks from anchor pairs
+compute_block_layout    Compute linear block coordinates
+compute_chr_layout      Compute linear chromosome coordinates
+get_representative_transcript
+                        Extract representative protein transcript from
+                        a FASTA file
+map_genes_to_linear     Map genomic intervals to linear chromosome
+                        coordinates
+parse_gff               Extract chromosome lengths from a GFF3
+                        annotation file
+parse_gff3_to_mcscanx   Convert GFF3 annotation to MCScanX gff format
+parse_Synteny_from_jcvi
+                        Parse synteny blocks from jcvi output
+parse_Synteny_from_mcscanx
+                        Parse synteny blocks from MCScanX output
+plot_microSynteny       Plot micro-synteny for a selected block
+plot_Synteny            Plot genome-level synteny
+prepare_jcvi_data       Parse synteny blocks from jcvi anchors and BED
+                        files
+prepare_mcscanx_data    Parse synteny blocks from an MCScanX
+                        collinearity file
+prepare_micro_synteny_data
+                        Prepare block-level data for micro-synteny
+                        plotting
+read_gff3_annotation    Read gene and transcript features from a GFF3
+                        file
+read_jcvi_bed           Read a jcvi BED file
+read_mcscanx_gff        Read an MCScanX gff file
+run_blastp_to_mcscanx   Run BLASTP for MCScanX synteny analysis
+run_MCScanX             Run MCScanX synteny analysis
+validate_ggsynteny_data
+                        Validate a ggsynteny data object
+validate_jcvi_synteny_workflow
+                        Run an end-to-end jcvi synteny validation
+                        workflow
+validate_real_synteny_workflow
+                        Run an end-to-end synteny validation workflow

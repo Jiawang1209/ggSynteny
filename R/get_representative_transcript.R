@@ -23,19 +23,16 @@ get_representative_transcript <- function(fasta, sep, output){
     purrr::set_names(c("ID", "fasta")) %>%
     dplyr::mutate(length = stringr::str_length(fasta)) %>%
     dplyr::mutate(ID2 = stringr::str_remove(ID, pattern = stringr::str_c("\\", sep, ".*", sep = ""))) %>%
-    dplyr::arrange(ID2, desc(length)) %>%
-    dplyr::distinct(ID2, .keep_all = T) %>%
-    dplyr::mutate(out = str_c(">",ID2,"\n",fasta))
-  
-  df3 <- df2 %>%
-    dplyr::select(ID, ID2, fasta, length)
+    dplyr::arrange(ID2, dplyr::desc(length)) %>%
+    dplyr::distinct(ID2, .keep_all = TRUE) %>%
+    dplyr::mutate(out = stringr::str_c(">", ID2, "\n", fasta))
   
   df2 %>%
     dplyr::select(out) %>%
-    write.table(file = output,
-                quote = F,
-                row.names = F,
-                col.names = F)
+    utils::write.table(file = output,
+                       quote = FALSE,
+                       row.names = FALSE,
+                       col.names = FALSE)
 
   
   cat("The", fasta, "have", dim(df)[1], "fasta!\n")

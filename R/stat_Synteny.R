@@ -1,3 +1,0 @@
-stat_Synteny <- function(){
-
-}

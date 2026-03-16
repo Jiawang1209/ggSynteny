@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ggSynteny Real-Data Workflows</title>
+</head>
+<body>
+  <h1>Real-Data Workflows</h1>
+  <p>
+    This page summarizes the real-data vignette workflow bundled with
+    <code>ggSynteny</code>.
+  </p>
+  <p>
+    The package supports two pairwise routes:
+  </p>
+  <ul>
+    <li><code>MCScanX</code>: <code>gff + collinearity</code></li>
+    <li><code>jcvi</code>: <code>BED + anchors</code></li>
+  </ul>
+  <p>
+    Both routes produce the same <code>ggsynteny_data</code> object and can be
+    enriched with optional <code>GFF3</code> annotation for transcript-aware
+    micro-synteny plotting.
+  </p>
+  <h2>Entry points</h2>
+  <ul>
+    <li><code>validate_real_synteny_workflow()</code> for MCScanX input</li>
+    <li><code>validate_jcvi_synteny_workflow()</code> for jcvi input</li>
+  </ul>
+  <h2>Checklist</h2>
+  <ul>
+    <li>Gene IDs must be consistent between pairwise input and annotation.</li>
+    <li>Chromosome names must match between pairwise input and <code>GFF3</code>.</li>
+    <li>All files must use the same genome build.</li>
+    <li><code>GFF3</code> should contain transcript, exon, or CDS features if you want feature-aware micro-synteny.</li>
+  </ul>
+  <p>
+    See <code>vignettes/real-data-workflows.Rmd</code> in the source tree for
+    the full runnable template.
+  </p>
+</body>
+</html>

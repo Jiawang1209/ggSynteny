@@ -1,23 +1,41 @@
 Package: ggSynteny
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Genome Synteny Data Processing and Visualization
 Version: 0.1.0
+Depends:
+    R (>= 4.1.0)
+Author: Jiawang1209 [aut, cre]
+Maintainer: Jiawang1209 <Jiawang1209@163.com>
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      given = "Jiawang1209",
+      email = "Jiawang1209@163.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
-License: What license is it under?
+Description: Tools for preparing pairwise genome synteny data and
+    drawing genome-level and micro-synteny visualizations in R.
+    The package currently supports MCScanX and jcvi-style pairwise
+    inputs, optional GFF3 annotation enrichment, and transcript-aware
+    local gene structure plotting.
+License: GPL-3
 Encoding: UTF-8
-LazyData: true
-Imports: 
+Imports:
     Biostrings,
+    dplyr,
     ggforce,
-    gggenes,
     ggplot2,
-    magrittr
+    magrittr,
+    purrr,
+    readr,
+    rlang,
+    stringr,
+    tibble,
+    utils
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+VignetteBuilder: knitr
+Config/testthat/edition: 3
 RoxygenNote: 7.3.3

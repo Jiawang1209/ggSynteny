@@ -1,0 +1,5 @@
+# synthetic example
+0- 0:	A_gene1	B_gene1	1e-20
+0- 1:	A_gene2	B_gene2	1e-25
+1- 0:	A_gene3	B_gene3	1e-18
+1- 1:	A_gene4	B_gene4	1e-30
