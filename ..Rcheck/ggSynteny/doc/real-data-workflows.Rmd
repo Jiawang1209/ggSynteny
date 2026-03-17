@@ -64,6 +64,24 @@ res_mcscanx <- validate_real_synteny_workflow(
 )
 ```
 
+You can inspect overlap before attaching annotation:
+
+```{r}
+data_mcscanx <- prepare_mcscanx_data(
+  synteny = collinearity,
+  gff = mcscanx_gff,
+  genome1 = "GenomeA",
+  genome2 = "GenomeB",
+  gap_size = 50
+)
+
+check_annotation_gene_id_match(
+  data = data_mcscanx,
+  gff3 = annotation,
+  genome_id = "GenomeA"
+)
+```
+
 The returned object contains:
 
 ```{r}

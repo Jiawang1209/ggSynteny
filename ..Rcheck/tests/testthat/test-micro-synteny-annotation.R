@@ -63,3 +63,24 @@ test_that("micro synteny preparation and plotting support transcript modes", {
 
   expect_s3_class(p, "ggplot")
 })
+
+test_that("check_annotation_gene_id_match summarizes annotation overlap", {
+  dat <- prepare_mcscanx_data(
+    synteny = extdata_path("toy_mcscanx.collinearity"),
+    gff = extdata_path("toy_mcscanx.gff"),
+    genome1 = "GenomeA",
+    genome2 = "GenomeB",
+    gap_size = 50
+  )
+
+  match_a <- check_annotation_gene_id_match(
+    data = dat,
+    gff3 = extdata_path("toy_annotation.gff3"),
+    genome_id = "GenomeA"
+  )
+
+  expect_equal(match_a$genome_id, "GenomeA")
+  expect_equal(match_a$n_data_genes, 4)
+  expect_true(match_a$n_matched_genes >= 2)
+  expect_true(match_a$match_rate > 0)
+})

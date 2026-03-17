@@ -25,4 +25,4 @@ Suggests: knitr, rmarkdown, testthat (>= 3.0.0)
 VignetteBuilder: knitr
 Config/testthat/edition: 3
 RoxygenNote: 7.3.3
-Built: R 4.5.1; ; 2026-03-16 15:45:27 UTC; unix
+Built: R 4.5.1; ; 2026-03-17 07:19:43 UTC; unix

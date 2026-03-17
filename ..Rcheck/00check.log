@@ -14,7 +14,11 @@
 * checking package dependencies ... OK
 * checking if this is a source package ... OK
 * checking if there is a namespace ... OK
-* checking for executable files ... OK
+* checking for executable files ... WARNING
+Found the following executable file:
+  .git/objects/c8/269cbdf1d41c7864594ebb1b15b6beaa050b11
+Source packages should not contain undeclared executable files.
+See section ‘Package structure’ in the ‘Writing R Extensions’ manual.
 * checking for hidden files and directories ... NOTE
 Found the following hidden files and directories:
   .DS_Store
@@ -74,4 +78,4 @@ Most likely, these were included erroneously.
 * checking re-building of vignette outputs ... OK
 * checking PDF version of manual ... OK
 * DONE
-Status: 1 WARNING, 2 NOTEs
+Status: 2 WARNINGs, 2 NOTEs

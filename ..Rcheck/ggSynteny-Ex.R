@@ -38,6 +38,22 @@ NULL
 
 
 cleanEx()
+nameEx("check_annotation_gene_id_match")
+### * check_annotation_gene_id_match
+
+flush(stderr()); flush(stdout())
+
+### Name: check_annotation_gene_id_match
+### Title: Check gene ID compatibility between synteny data and a GFF3 file
+### Aliases: check_annotation_gene_id_match
+
+### ** Examples
+
+NULL
+
+
+
+cleanEx()
 nameEx("compute_block_layout")
 ### * compute_block_layout
 
@@ -62,6 +78,38 @@ flush(stderr()); flush(stdout())
 ### Name: compute_chr_layout
 ### Title: Compute linear chromosome coordinates
 ### Aliases: compute_chr_layout
+
+### ** Examples
+
+NULL
+
+
+
+cleanEx()
+nameEx("create_analysis_design")
+### * create_analysis_design
+
+flush(stderr()); flush(stdout())
+
+### Name: create_analysis_design
+### Title: Create a multi-genome analysis design
+### Aliases: create_analysis_design
+
+### ** Examples
+
+NULL
+
+
+
+cleanEx()
+nameEx("define_comparisons")
+### * define_comparisons
+
+flush(stderr()); flush(stdout())
+
+### Name: define_comparisons
+### Title: Define ordered pairwise comparisons for a multi-genome analysis
+### Aliases: define_comparisons
 
 ### ** Examples
 
@@ -231,6 +279,23 @@ NULL
 
 
 cleanEx()
+nameEx("prepare_mcscanx_inputs")
+### * prepare_mcscanx_inputs
+
+flush(stderr()); flush(stdout())
+
+### Name: prepare_mcscanx_inputs
+### Title: Prepare ordered MCScanX inputs from a multi-genome analysis
+###   design
+### Aliases: prepare_mcscanx_inputs
+
+### ** Examples
+
+NULL
+
+
+
+cleanEx()
 nameEx("prepare_micro_synteny_data")
 ### * prepare_micro_synteny_data
 
@@ -295,6 +360,22 @@ NULL
 
 
 cleanEx()
+nameEx("register_genomes")
+### * register_genomes
+
+flush(stderr()); flush(stdout())
+
+### Name: register_genomes
+### Title: Register genomes for a multi-genome synteny analysis
+### Aliases: register_genomes
+
+### ** Examples
+
+NULL
+
+
+
+cleanEx()
 nameEx("run_MCScanX")
 ### * run_MCScanX
 
@@ -320,6 +401,22 @@ flush(stderr()); flush(stdout())
 ### Name: run_blastp_to_mcscanx
 ### Title: Run BLASTP for MCScanX synteny analysis
 ### Aliases: run_blastp_to_mcscanx
+
+### ** Examples
+
+NULL
+
+
+
+cleanEx()
+nameEx("validate_analysis_design")
+### * validate_analysis_design
+
+flush(stderr()); flush(stdout())
+
+### Name: validate_analysis_design
+### Title: Validate a multi-genome analysis design
+### Aliases: validate_analysis_design
 
 ### ** Examples
 

@@ -11,7 +11,13 @@
 #' @examples NULL
 parse_gff3_to_mcscanx <- function(gffpath, output){
   
-  gff <- readr::read_delim(file = gffpath, delim = "\t", comment = "#", col_names = F) %>%
+  gff <- readr::read_delim(
+    file = gffpath,
+    delim = "\t",
+    comment = "#",
+    col_names = FALSE,
+    show_col_types = FALSE
+  ) %>%
     dplyr::filter(X3 == "gene") %>%
     dplyr::select(X1, X4, X5, X9) %>%
     dplyr::mutate(X9 = stringr::str_remove(X9, pattern = ";.*")) %>%

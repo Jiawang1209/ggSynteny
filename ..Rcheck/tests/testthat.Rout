@@ -21,8 +21,8 @@ ggSynteny v0.1.0
 Genome synteny data processing and visualization
 > 
 > test_check("ggSynteny")
-[ FAIL 0 | WARN 0 | SKIP 0 | PASS 35 ]
+[ FAIL 0 | WARN 0 | SKIP 0 | PASS 61 ]
 > 
 > proc.time()
    user  system elapsed 
-  1.547   0.103   1.653 
+  1.708   0.117   1.851 

@@ -2,8 +2,15 @@ add_gff3_annotation     Attach GFF3 annotation to a ggsynteny data
                         object
 build_blocks_from_anchors
                         Build synteny blocks from anchor pairs
+check_annotation_gene_id_match
+                        Check gene ID compatibility between synteny
+                        data and a GFF3 file
 compute_block_layout    Compute linear block coordinates
 compute_chr_layout      Compute linear chromosome coordinates
+create_analysis_design
+                        Create a multi-genome analysis design
+define_comparisons      Define ordered pairwise comparisons for a
+                        multi-genome analysis
 get_representative_transcript
                         Extract representative protein transcript from
                         a FASTA file
@@ -22,6 +29,9 @@ prepare_jcvi_data       Parse synteny blocks from jcvi anchors and BED
                         files
 prepare_mcscanx_data    Parse synteny blocks from an MCScanX
                         collinearity file
+prepare_mcscanx_inputs
+                        Prepare ordered MCScanX inputs from a
+                        multi-genome analysis design
 prepare_micro_synteny_data
                         Prepare block-level data for micro-synteny
                         plotting
@@ -29,8 +39,12 @@ read_gff3_annotation    Read gene and transcript features from a GFF3
                         file
 read_jcvi_bed           Read a jcvi BED file
 read_mcscanx_gff        Read an MCScanX gff file
+register_genomes        Register genomes for a multi-genome synteny
+                        analysis
 run_blastp_to_mcscanx   Run BLASTP for MCScanX synteny analysis
 run_MCScanX             Run MCScanX synteny analysis
+validate_analysis_design
+                        Validate a multi-genome analysis design
 validate_ggsynteny_data
                         Validate a ggsynteny data object
 validate_jcvi_synteny_workflow

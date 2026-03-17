@@ -18,6 +18,7 @@ input into the same internal `ggsynteny_data` structure.
 
 Implemented:
 
+- Register multiple genomes and ordered pairwise comparisons
 - Convert `GFF3` to MCScanX `gff` format
 - Extract representative protein transcripts
 - Run `BLASTP` and `MCScanX`
@@ -167,6 +168,22 @@ result$genome_plot
 result$micro_plot
 ```
 
+Before attaching annotation on a real dataset, you can quickly inspect gene ID
+compatibility with:
+
+```r
+check_annotation_gene_id_match(
+  data = result$data,
+  gff3 = "path/to/speciesA.gff3",
+  genome_id = "SpeciesA"
+)
+```
+
+Drop-in real-data script templates are bundled in:
+
+- `inst/templates/real_case_mcscanx_template.R`
+- `inst/templates/real_case_jcvi_template.R`
+
 ## Example data format
 
 `toy_mcscanx.gff`
@@ -190,6 +207,9 @@ B_chr1  B_gene2  180  300
 
 - `prepare_mcscanx_data()`: parse MCScanX output into standardized tables
 - `prepare_jcvi_data()`: parse jcvi `BED + anchors` output into standardized tables
+- `register_genomes()`: register ordered genome inputs for multi-genome analysis
+- `define_comparisons()`: define ordered pairwise comparisons
+- `prepare_mcscanx_inputs()`: materialize MCScanX input files from an analysis design
 - `plot_Synteny()`: draw a genome-level synteny plot
   Supports block filtering, genome order, chromosome order, and multiple color mappings.
 - `plot_microSynteny()`: draw a block-level micro-synteny plot with local gene tracks

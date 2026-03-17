@@ -19,6 +19,18 @@ res_mcscanx <- validate_real_synteny_workflow(
 names(res_mcscanx)
 names(res_mcscanx$data)
 
+check_annotation_gene_id_match(
+  data = prepare_mcscanx_data(
+    synteny = collinearity,
+    gff = mcscanx_gff,
+    genome1 = "GenomeA",
+    genome2 = "GenomeB",
+    gap_size = 50
+  ),
+  gff3 = annotation,
+  genome_id = "GenomeA"
+)
+
 jcvi_anchors <- system.file("extdata", "toy_jcvi.anchors", package = "ggSynteny")
 bed_a <- system.file("extdata", "toy_jcvi_genomeA.bed", package = "ggSynteny")
 bed_b <- system.file("extdata", "toy_jcvi_genomeB.bed", package = "ggSynteny")
