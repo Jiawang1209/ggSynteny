@@ -224,3 +224,6 @@ B_chr1  B_gene2  180  300
 - The package metadata and plotting API are still being refined.
 - The current plotting API is designed around two genomes and standardized pairwise output.
 - A vignette template for real-data runs is available in `vignettes/real-data-workflows.Rmd`.
+
+
+
